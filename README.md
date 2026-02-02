@@ -1,69 +1,75 @@
-============================================================
-🧱 PRODUCT MANAGEMENT SYSTEM – 3 TIER ARCHITECTURE (.NET)
-============================================================
+======================================================================
+[::] PRODUCT MANAGEMENT SYSTEM - 3 TIER ARCHITECTURE (.NET)
+======================================================================
 
-DESCRIPTION
------------
-Console-based Product Management System built using 3-Tier Architecture.
-The project focuses on clean separation between Presentation Layer,
-Business Logic Layer, and Data Access Layer to practice scalable and
-maintainable software design principles.
+[>>] DESCRIPTION
+----------------------------------------------------------------------
+Console based Product Management System built to practice clean
+3-Tier Architecture with clear separation of concerns.
 
-ARCHITECTURE
-------------
-- Presentation Layer : Program.cs (User Interaction & Menu)
-- Business Layer     : ProductService.cs / IProductService.cs
-- Data Layer         : ProductRepository.cs / IProductRepository.cs
-- Model              : Product.cs
+Layers are separated into:
+- Presentation Layer
+- Business Logic Layer
+- Data Access Layer
 
-PROJECT GOALS
--------------
-- Practice 3-Tier Architecture
-- Understand separation of concerns
-- Apply interfaces and dependency abstraction
-- Prepare foundation for future expansion (API / UI / Database)
+This structure helps building scalable and maintainable applications.
 
-TECHNOLOGIES
-------------
-- Language   : C#
-- Platform   : .NET Console Application
-- Pattern    : Repository Pattern
-- Architecture: 3-Tier Architecture
+[>>] ARCHITECTURE
+----------------------------------------------------------------------
+[UI ] Presentation Layer : Program.cs
+[BL ] Business Layer     : ProductService.cs / IProductService.cs
+[DAL] Data Layer         : ProductRepository.cs / IProductRepository.cs
+[MOD] Model              : Product.cs
 
-FEATURES
---------
-- Add Product
-- View All Products
-- Update Product
-- Delete Product
-- In-Memory Data Storage (List)
+[>>] PROJECT GOALS
+----------------------------------------------------------------------
+[OK] Apply 3-Tier Architecture correctly
+[OK] Use Interfaces for abstraction
+[OK] Separate business rules from data access
+[OK] Prepare project for future API / UI expansion
 
-PROJECT STRUCTURE
------------------
+[>>] TECHNOLOGIES
+----------------------------------------------------------------------
+[LANG] C#
+[PLAT] .NET Console Application
+[PATT] Repository Pattern
+[ARCH] 3-Tier Architecture
+
+[>>] FEATURES
+----------------------------------------------------------------------
+[+] Add Product
+[*] View All Products
+[~] Update Product
+[-] Delete Product
+[#] In-Memory Storage using List
+
+[>>] PROJECT FILES
+----------------------------------------------------------------------
 ProductManagementSystem
-│
-├── Product.cs
-├── Program.cs
-│
-├── IProductRepository.cs
-├── ProductRepository.cs
-│
-├── IProductService.cs
-└── ProductService.cs
+|
+|-- Product.cs
+|-- Program.cs
+|
+|-- IProductRepository.cs
+|-- ProductRepository.cs
+|
+|-- IProductService.cs
+`-- ProductService.cs
 
-NOTES
------
-- Business Layer handles validation and rules
-- Data Layer handles storage and retrieval
-- Presentation Layer only interacts with Business Layer
-- No direct dependency between UI and Data Layer
+[>>] NOTES
+----------------------------------------------------------------------
+- UI layer never talks directly to Data layer
+- Business layer contains validation and rules
+- Data layer handles storage only
 
-AUTHOR
-------
+[>>] AUTHOR
+----------------------------------------------------------------------
 Shady Mahmoud
 
-STATUS
-------
-Learning Project – Architecture Practice – Ready for Extension
+[>>] STATUS
+----------------------------------------------------------------------
+Learning Project
+Architecture Practice
+Ready for Extension
 
-============================================================
+======================================================================
