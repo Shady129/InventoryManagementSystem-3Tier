@@ -1,72 +1,73 @@
-# 🧱 InventoryManagementSystem-3Tier
+# 📦 Inventory Management System – C# Console Application (3-Tier Architecture)
 
-🧠 OVERVIEW
-A clean C# console application built using the 3-Tier Architecture pattern.
-The project focuses on separating responsibilities between layers while
-enforcing proper business rules and clean design principles.
+A C# console-based Inventory Management System that simulates real-world inventory
+operations with a strong focus on clean architecture, separation of concerns, and
+business rule enforcement. The project demonstrates how a structured inventory
+workflow can be implemented using the 3-Tier Architecture pattern without external
+libraries or databases.
 
-✔ Separation of Concerns
-✔ Repository Pattern
-✔ Dependency Injection
-✔ Interface-Based Design
-✔ Business Rules Enforcement
-✔ Ready for Database or Web API
+## 🚀 Features
+- ➕ Add new products with validation
+- ✏️ Update existing products safely
+- 🗑️ Delete products with existence checks
+- 📋 View all products
+- 🔍 Get product by ID
+- 🚫 Prevent duplicate product IDs
+- 🧠 Centralized business logic
+- ⚠️ Exception handling for invalid operations
 
-🧩 ARCHITECTURE FLOW
-🖥️ UI Layer (Program.cs)
-│  ▸ Read user input
-│  ▸ Display menus & results
-│  ▸ Handle exceptions
-│
-▼
-🧠 Business Layer (Service)
-│  ▸ Apply business rules
-│  ▸ Validate data
-│  ▸ Prevent invalid operations
-│  ▸ Decide whether actions are allowed
-│
-▼
-🗄️ Data Access Layer (Repository)
-│  ▸ Store data
-│  ▸ Retrieve data
-│  ▸ Execute commands only
-│  ▸ No business logic
+## 🛠️ Technologies Used
+- C#
+- .NET Console Application
+- Collections (List)
+- Interfaces
+- Dependency Injection
+- Repository Pattern
+- 3-Tier Architecture
 
-🗂️ PROJECT STRUCTURE
-InventoryManagementSystem
-├── 🖥️ Program.cs
-├── 🧠 Inventory.Business
-│   ├── IProductService        // UI ↔ Business contract
-│   └── ProductService         // Business rules & logic
-└── 🗄️ Inventory.DataAccess
-    ├── IProductRepository     // Business ↔ Data contract
-    └── ProductRepository      // Data storage (List as fake DB)
+## 📂 Project Structure
+InventoryManagementSystem-3Tier/
+├── Program.cs
+├── Inventory.Business/
+│   ├── IProductService.cs
+│   └── ProductService.cs
+├── Inventory.DataAccess/
+│   ├── IProductRepository.cs
+│   └── ProductRepository.cs
+├── InventorySystem.Models/
+│   └── Product.cs
+├── README.md
+└── .gitignore
 
-🔌 INTERFACES RESPONSIBILITY
-IProductService
-▸ Defines what the user can do
-▸ Exposes business operations only
-▸ Used by the UI layer
+## 🧠 Project Design Overview
+The system follows the 3-Tier Architecture pattern.
+- UI Layer handles user interaction and menu navigation only.
+- Business Layer contains all validation rules and decision-making logic.
+- Data Access Layer handles data storage using an in-memory list as a fake database.
+Layers communicate through interfaces to ensure loose coupling and maintainability.
 
-IProductRepository
-▸ Defines how data is accessed
-▸ Exposes data-related operations
-▸ Used internally by the Business layer
+## 🧹 Code Quality
+This project applies clean code principles by separating responsibilities between
+layers, avoiding duplicated logic, centralizing business rules in the service layer,
+using clear naming conventions, and keeping the UI layer free from business logic.
 
-🧠 BUSINESS RULES ENFORCED
-✔ Prevent adding duplicate products
-✔ Prevent updating non-existing products
-✔ Prevent deleting non-existing products
-✔ Validate price and quantity
-✔ Centralized decision-making in Business layer
 
-🚀 FUTURE EXTENSIONS
-▸ Replace List with Database
-▸ Convert Console App to Web API
-▸ Add Logging
-▸ Add Unit Testing
-▸ Custom Exceptions
+## 🎯 Learning Outcomes
+- Understanding the 3-Tier Architecture in practice
+- Applying the Repository Pattern correctly
+- Using interfaces to decouple application layers
+- Implementing business rules in the correct layer
+- Handling exceptions in a structured way
+- Building scalable and maintainable console applications
 
-📎 SUMMARY
-This project demonstrates how a real-world application can be structured using
-the 3-Tier Architecture, keeping the code clean, scalable, and maintainable.
+## 🚀 Future Improvements
+- Replace in-memory list with a database
+- Convert the project to a Web API
+- Add logging
+- Add unit testing
+- Implement custom exceptions
+
+## 📝 Learning Notes
+This project focuses on architectural correctness rather than only functionality.
+It highlights how separating UI, business logic, and data access layers leads to
+cleaner, more maintainable, and scalable codebases.
