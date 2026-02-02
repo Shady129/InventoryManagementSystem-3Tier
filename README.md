@@ -1,7 +1,6 @@
-============================================================
-🧱📦 PRODUCT MANAGEMENT SYSTEM – 3️⃣ TIER ARCHITECTURE (.NET)
-============================================================
 
+🧱📦 PRODUCT MANAGEMENT SYSTEM – 3️⃣ TIER ARCHITECTURE (.NET)
+-------------
 📝 DESCRIPTION
 -------------
 🖥️ Console-based Product Management System built using 🧱 3-Tier Architecture.
