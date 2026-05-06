@@ -65,31 +65,34 @@ namespace InventoryManagementSystem
 
 
 
-        static void HandleUserChoice(int choice)
-        {
-            switch (choice)
-            {
-                case 1:
-                    AddProduct();
-                    break;
+     static bool HandleUserChoice(int choice)
+{
+    switch (choice)
+    {
+        case 1:
+            AddProduct();
+            return true;
 
-                case 2:
-                    ShowAllProducts();
-                    break;
+        case 2:
+            ShowAllProducts();
+            return true;
 
-                case 3:
-                    UpdateProduct();
-                    break;
+        case 3:
+            UpdateProduct();
+            return true;
 
-                case 4:
-                    DeleteProduct();
-                    break;
+        case 4:
+            DeleteProduct();
+            return true;
 
-                case 5:
-                    return;
-            }
+        case 5:
+            return false;
 
-        }
+        default:
+            Console.WriteLine("Invalid choice.");
+            return true;
+    }
+}
 
      
 
