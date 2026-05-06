@@ -64,8 +64,8 @@ namespace InventoryManagementSystem
         }
 
 
-
-     static bool HandleUserChoice(int choice)
+        
+static bool HandleUserChoice(int choice)
 {
     switch (choice)
     {
