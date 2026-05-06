@@ -1,6 +1,6 @@
-﻿using Inventory.Business;
-using Inventory.DataAccess;
-using InventorySystem.Models;
+using InventoryManagementSystem.Business;
+using InventoryManagementSystem.DataAccess;
+using InventoryManagementSystem.Models;
 
 
 namespace InventoryManagementSystem
@@ -37,19 +37,7 @@ namespace InventoryManagementSystem
         }
 
 
-        static int ReadNumber()
-        {
-            int number;
-
-            while (!int.TryParse(Console.ReadLine(), out number))
-            {
-
-                Console.Write("Invalid number, try again: ");
-            }
-
-            return number;
-
-        }
+   
 
 
         static void RunApplication()
@@ -57,65 +45,77 @@ namespace InventoryManagementSystem
             while (true)
             {
                 ShowMenu();
-                int choice = ReadNumber();
-                HandleUserChoice(choice);
-            }
 
+                int choice = InputHelper.ReadInt("Enter the choic: ", 1);
+
+                bool keepRunning = HandleUserChoice(choice);
+
+                if (!keepRunning)
+                    break;
+            }
         }
 
 
-        
-static bool HandleUserChoice(int choice)
-{
-    switch (choice)
-    {
-        case 1:
-            AddProduct();
-            return true;
 
-        case 2:
-            ShowAllProducts();
-            return true;
-
-        case 3:
-            UpdateProduct();
-            return true;
-
-        case 4:
-            DeleteProduct();
-            return true;
-
-        case 5:
-            return false;
-
-        default:
-            Console.WriteLine("Invalid choice.");
-            return true;
-    }
-}
-
-     
-
-
-            static void AddProduct()
+        static bool HandleUserChoice(int choice)
+        {
+            switch (choice)
             {
+                case 1:
+                    AddProduct();
+                    return true;
+
+                case 2:
+                    ShowAllProducts();
+                    return true;
+
+                case 3:
+                    UpdateProduct();
+                    return true;
+
+                case 4:
+                    DeleteProduct();
+                    return true;
+
+                case 5:
+                    return false;
+
+                default:
+                    Console.WriteLine("Invalid choice.");
+                    return true;
+            }
+        }
+
+
+
+
+        static void AddProduct()
+        {
                 Product product = new Product();
 
+                
+                product.Id = InputHelper.ReadInt("Id: ", 1);
 
-                Console.Write("Id: ");
-                product.Id = ReadNumber();
+               
+                product.Name = InputHelper.ReadString("Name: ");
 
-                Console.Write("Name: ");
-                product.Name = Console.ReadLine();
+                
+                product.Price = InputHelper.ReadDec("Price: ", 0);
 
-                Console.Write("Price: ");
-                product.Price = decimal.Parse(Console.ReadLine());
+                
+                product.Quantity = InputHelper.ReadInt("Quantity: ", 0);
 
-                Console.Write("Quantity: ");
-                product.Quantity = ReadNumber();
+                try
+                {
+                    productService.Add(product);
+                    Console.WriteLine("\nProduct Added successfully.");
+                }
+                catch (Exception ex)
+                {
 
-                productService.Add(product);
-            }
+                    Console.WriteLine(ex.Message);
+                }
+        }
 
 
 
@@ -126,7 +126,7 @@ static bool HandleUserChoice(int choice)
                 foreach (Product product in products)
                 {
                 Console.WriteLine(
-                    $"Id:{product.Id} Name:{product.Name} Price:{product.Price} Qty:{product.Quantity}\n");
+                    $"\nId:{product.Id} - Name:{product.Name} -  Price:{product.Price} - Qty:{product.Quantity}\n");
                 
                 }
             }
@@ -137,29 +137,60 @@ static bool HandleUserChoice(int choice)
             {
                 Product product = new Product();
 
-                Console.Write("Id to update: ");
-                product.Id = ReadNumber();
+                
+                product.Id = InputHelper.ReadInt("Id to update: ", 1);
 
-                Console.Write("New Name: ");
-                product.Name = Console.ReadLine();
+            
+                product.Name = InputHelper.ReadString("New Name: ");
 
-                Console.Write("New Price: ");
-                product.Price = decimal.Parse(Console.ReadLine());
+               
+                product.Price = InputHelper.ReadDec("New Price: ", 0);
 
-                Console.Write("New Quantity: ");
-                product.Quantity = ReadNumber();
+              
+               product.Quantity = InputHelper.ReadInt("New Quantity: ", 0);
 
-                productService.Update(product);
+
+                try
+                {
+                    productService.Update(product);
+                    Console.WriteLine("\nProduct Updated successfully.");
+            }
+                catch(Exception ex)
+                {
+                     Console.WriteLine(ex.Message);
+
+                }
+
+               
+
             }
 
 
             static void DeleteProduct()
             {
-                Console.Write("Id to delete: ");
-                int id = ReadNumber();
+                
+;               int Id = InputHelper.ReadInt("Id to delete: ",1);
 
-                productService.Delete(id);
+
+
+
+                try
+                {
+                    productService.Delete(Id);
+                    Console.WriteLine("\nProduct deleted successfully.");
+
             }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+
+             
+            }
+
+
+
     }
 
 }
