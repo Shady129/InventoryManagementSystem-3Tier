@@ -1,5 +1,5 @@
 # 📦 Product Management System  
-## Console Application using Simple Layered Architecture (C#)
+## Console Application using Layered Architecture (C#)
 
 ----------------------------------------
 
@@ -71,7 +71,7 @@ Represents the Product entity.
 📂 Project Structure
 ----------------------------------------
 
-InventoryManagementSystem  
+ProductManagementSystem  
 │  
 ├── Program.cs  
 ├── InputHelper.cs  
